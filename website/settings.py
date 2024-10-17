@@ -126,5 +126,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # login shit
 LOGIN_URL = "/login/"
-LOGIN_REDIRECT_URL = "/inventory/"
+LOGIN_REDIRECT_URL = "/home/"
 
