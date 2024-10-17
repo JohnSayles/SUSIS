@@ -8,6 +8,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='user/login.html'), name='login'),
     path('logout/', user_views.logout_view, name='logout'),
 
-    path("inventory/", include("inventory.urls")),
+    path("home/", user_views.HomePage, name = 'home'),
+    path("inventory/", include("inventory.urls"), name = 'inventory'),
+    path("analytics/", user_views.Analytics, name = 'analytics'),
     path('admin/', admin.site.urls),
 ]

@@ -22,11 +22,19 @@ def register(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'user/logout.html')
+    #return render(request, 'user/logout.html')
+    return redirect('login')
 
+# [home screen]
+@login_required
+def HomePage(request):
+    context = {
+        
+    }
+    template = loader.get_template("inventory/Home.html")
+    return HttpResponse(template.render(context,request))
 
-
-# MAIN control room [inventory]
+# control room [inventory]
 @login_required
 def Controlroom(request):
     Item_list = Item.objects.all()
@@ -36,7 +44,7 @@ def Controlroom(request):
     }
     return HttpResponse(template.render(context,request))
 
-# specific item page
+# [specific item page]
 @login_required
 def Itemdetails(request, item_id):
     template = loader.get_template("inventory/Itemdetails.html")
@@ -45,3 +53,11 @@ def Itemdetails(request, item_id):
     }
     return HttpResponse(template.render(context,request))
     
+# [hanalytics]
+@login_required
+def Analytics(request):
+    context = {
+        
+    }
+    template = loader.get_template("inventory/Analytics.html")
+    return HttpResponse(template.render(context,request))
